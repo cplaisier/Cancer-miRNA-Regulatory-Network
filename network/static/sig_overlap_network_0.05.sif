@@ -1,0 +1,407 @@
+GLB Brain Sun.36	tissue_cluster	Brain
+GLB Brain Sun.36	cluster_mirna	hsa-mir-423-5p
+SMCL Lung Bhattacharjee.36	tissue_cluster	Lung
+SMCL Lung Bhattacharjee.36	cluster_mirna	hsa-mir-296-5p
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	cluster_mirna	AD Lung Beer.31
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	cluster_mirna	AD Lung Bhattacharjee.59
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	cluster_mirna	END Ovarian Hendrix.6
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	cluster_mirna	CCC Ovarian Hendrix.11
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-920	cluster_mirna	COID Lung Bhattacharjee.92
+hsa-mir-920	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-920	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-920	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-920	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-920	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-920	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-920	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+SQ Lung Bhattacharjee.44	tissue_cluster	Lung
+SQ Lung Bhattacharjee.44	cluster_mirna	hsa-mir-767-5p
+SQ Lung Bhattacharjee.45	cluster_mirna	hsa-mir-654-5p
+SQ Lung Bhattacharjee.45	tissue_cluster	Lung
+hsa-mir-526b	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-526b	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-526b	cluster_mirna	MPM Mesothelioma Gordon.7
+hsa-mir-526b	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-526b	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+HSCC Head-Neck Chung.1	cluster_mirna	hsa-mir-29b_hsa-mir-29c_hsa-mir-29a_hsa-mir-767-5p_hsa-mir-450b-5p
+HSCC Head-Neck Chung.1	tissue_cluster	Head-neck
+hsa-mir-370	cluster_mirna	AD Lung Stearman.19
+hsa-mir-370	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-370	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-370	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-370	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-370	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+CA Colon Graudens.35	tissue_cluster	Colon
+CA Colon Graudens.35	cluster_mirna	hsa-mir-325
+TU Prostate Lapointe.23	cluster_mirna	hsa-mir-25
+TU Prostate Lapointe.23	tissue_cluster	Prostate
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-548c-3p	cluster_mirna	B-CLL Leukemia Haslinger.62
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Evading Apoptosis
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-548c-3p	cluster_mirna	ME Melanoma Hoek.50
+hsa-mir-548c-3p	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+ODGL Brain Sun.2	tissue_cluster	Brain
+ODGL Brain Sun.2	cluster_mirna	hsa-mir-939
+ODGL Brain Sun.32	tissue_cluster	Brain
+ODGL Brain Sun.32	cluster_mirna	hsa-mir-153
+GCT Seminoma Korkola.75	cluster_mirna	hsa-mir-708_hsa-mir-25_hsa-mir-32_hsa-mir-92a_hsa-mir-92b_hsa-mir-363_hsa-mir-367_hsa-mir-664
+GCT Seminoma Korkola.75	tissue_cluster	Seminoma
+hsa-let-7e_hsa-let-7f_hsa-let-7g_hsa-let-7a_hsa-let-7b_hsa-let-7d_hsa-let-7i_hsa-mir-98_hsa-let-7c	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-let-7e_hsa-let-7f_hsa-let-7g_hsa-let-7a_hsa-let-7b_hsa-let-7d_hsa-let-7i_hsa-mir-98_hsa-let-7c	cluster_mirna	GL Brain Rickman.31
+hsa-let-7e_hsa-let-7f_hsa-let-7g_hsa-let-7a_hsa-let-7b_hsa-let-7d_hsa-let-7i_hsa-mir-98_hsa-let-7c	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-let-7e_hsa-let-7f_hsa-let-7g_hsa-let-7a_hsa-let-7b_hsa-let-7d_hsa-let-7i_hsa-mir-98_hsa-let-7c	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-let-7e_hsa-let-7f_hsa-let-7g_hsa-let-7a_hsa-let-7b_hsa-let-7d_hsa-let-7i_hsa-mir-98_hsa-let-7c	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+Bladder	tissue_cluster	CA Bladder Dyrskjot.40
+Bladder	tissue_cluster	CA Bladder Dyrskjot.82
+Bladder	tissue_cluster	CA Bladder Dyrskjot.51
+MM Myeloma Zhan.50	tissue_cluster	Myeloma
+MM Myeloma Zhan.50	cluster_mirna	hsa-mir-28-5p
+AD Lung Bhattacharjee.59	tissue_cluster	Lung
+GBM Brain Liang.18	tissue_cluster	Brain
+GBM Brain Liang.18	cluster_mirna	hsa-mir-369-5p
+hsa-mir-34a	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-34a	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-34a	cluster_mirna	GCT Seminoma Korkola.102
+hsa-mir-34a	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-34a	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-640	cluster_mirna	CA Breast Sorlie.17
+hsa-mir-640	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-640	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-640	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-640	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+END Ovarian Hendrix.58	cluster_mirna	hsa-mir-621
+END Ovarian Hendrix.58	tissue_cluster	Ovarian
+hsa-mir-760	cluster_mirna	MM Myeloma Zhan.29
+hsa-mir-760	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-760	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-760	cluster_mirna	B-CLL Leukemia Haslinger.27
+hsa-mir-760	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-760	cluster_mirna	GLB Brain Sun.41
+hsa-mir-760	mirna_hallmark_of_cancer	Reprogramming Energy Metabolism
+hsa-mir-760	mirna_hallmark_of_cancer	Evading Apoptosis
+hsa-mir-760	cluster_mirna	AD Lung Bhattacharjee.42
+hsa-mir-760	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+GL Brain Bredel.30	tissue_cluster	Brain
+GL Brain Bredel.30	cluster_mirna	hsa-mir-342-5p
+hsa-mir-765	mirna_hallmark_of_cancer	Reprogramming Energy Metabolism
+hsa-mir-765	cluster_mirna	OD Brain Bredel.15
+hsa-mir-212	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-212	cluster_mirna	SMCL Lung Bhattacharjee.35
+hsa-mir-212	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+AD Ovarian Welsh.1	tissue_cluster	Ovarian
+AD Ovarian Welsh.1	cluster_mirna	hsa-mir-548d-3p
+hsa-mir-210	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-210	cluster_mirna	AD Ovarian Welsh.26
+hsa-mir-210	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-210	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-210	mirna_hallmark_of_cancer	Evading Apoptosis
+hsa-mir-210	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-210	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-507_hsa-mir-557
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-548l
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-548n_hsa-mir-607
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-376a_hsa-mir-376b_hsa-mir-376c
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-548d-3p
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-331-3p
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-637_hsa-mir-523
+Evading Apoptosis	mirna_hallmark_of_cancer	hsa-mir-342-5p
+hsa-mir-369-5p	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-369-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+ME Melanoma Hoek.50	tissue_cluster	Melanoma
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-342-5p	cluster_mirna	COID Lung Bhattacharjee.24
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Limitless Replicative Potential
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-342-5p	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+HSCC Head-Neck Cromer.25	cluster_mirna	hsa-mir-1264
+HSCC Head-Neck Cromer.25	tissue_cluster	Head-neck
+hsa-mir-9	cluster_mirna	IDC Breast Radvanyi.16
+hsa-mir-9	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-548n_hsa-mir-607	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-548n_hsa-mir-607	cluster_mirna	SQ Lung Bhattacharjee.22
+GCT Seminoma Korkola.102	tissue_cluster	Seminoma
+hsa-mir-1275	cluster_mirna	GLB Brain Sun.29
+hsa-mir-1275	cluster_mirna	AD Lung Beer.43
+hsa-mir-1275	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-1275	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-423-5p	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-423-5p	cluster_mirna	CA Breast Sorlie.23
+hsa-mir-423-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-423-5p	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+AD Lung Bhattacharjee.49	tissue_cluster	Lung
+AD Lung Bhattacharjee.49	cluster_mirna	hsa-mir-567
+GLB Brain Sun.29	tissue_cluster	Brain
+hsa-mir-130b_hsa-mir-301a_hsa-mir-301b_hsa-mir-130a_hsa-mir-454	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-130b_hsa-mir-301a_hsa-mir-301b_hsa-mir-130a_hsa-mir-454	cluster_mirna	CA Breast Richardson.55
+hsa-mir-130b_hsa-mir-301a_hsa-mir-301b_hsa-mir-130a_hsa-mir-454	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+AD Lung Bhattacharjee.41	tissue_cluster	Lung
+AD Lung Bhattacharjee.41	cluster_mirna	hsa-mir-296-5p
+AD Lung Bhattacharjee.42	tissue_cluster	Lung
+hsa-mir-656	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-656	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-656	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-656	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-656	cluster_mirna	AD Lung Beer.32
+hsa-mir-656	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-656	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-548l	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-548l	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-548l	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-548l	cluster_mirna	AD Ovarian Welsh.16
+hsa-mir-548l	mirna_hallmark_of_cancer	Reprogramming Energy Metabolism
+hsa-mir-548l	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-548k	cluster_mirna	AD Lung Beer.9
+hsa-mir-548k	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-548k	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+TU Prostate Lapointe.37	cluster_mirna	hsa-mir-199b-3p_hsa-mir-199a-3p
+TU Prostate Lapointe.37	tissue_cluster	Prostate
+hsa-mir-718	cluster_mirna	GL Brain Rickman.2
+hsa-mir-718	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-718	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-718	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+GCT Seminoma Korkola.4	tissue_cluster	Seminoma
+GCT Seminoma Korkola.4	cluster_mirna	hsa-mir-376a_hsa-mir-376b_hsa-mir-376c
+SMCL Lung Bhattacharjee.25	cluster_mirna	hsa-mir-101
+SMCL Lung Bhattacharjee.25	tissue_cluster	Lung
+hsa-mir-125a-3p	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-125a-3p	cluster_mirna	IDC Breast Radvanyi.39
+hsa-mir-125a-3p	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-125a-3p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-567	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-567	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-567	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-567	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+B-CLL Leukemia Haslinger.27	tissue_cluster	Leukemia
+SRS Ovarian Hendrix.72	tissue_cluster	Ovarian
+SRS Ovarian Hendrix.72	cluster_mirna	hsa-mir-1276
+hsa-mir-28-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-28-5p	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+Head-neck	tissue_cluster	HSCC Head-Neck Cromer.18
+AD Lung Bhattacharjee.30	cluster_mirna	hsa-mir-607
+AD Lung Bhattacharjee.30	tissue_cluster	Lung
+Mesothelioma	tissue_cluster	MPM Mesothelioma Gordon.7
+AD Lung Beer.31	tissue_cluster	Lung
+AD Ovarian Welsh.16	tissue_cluster	Ovarian
+hsa-mir-708_hsa-mir-25_hsa-mir-32_hsa-mir-92a_hsa-mir-92b_hsa-mir-363_hsa-mir-367_hsa-mir-664	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-708_hsa-mir-25_hsa-mir-32_hsa-mir-92a_hsa-mir-92b_hsa-mir-363_hsa-mir-367_hsa-mir-664	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-637_hsa-mir-523	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-637_hsa-mir-523	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-637_hsa-mir-523	cluster_mirna	AC Brain Sun.5
+hsa-mir-637_hsa-mir-523	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-637_hsa-mir-523	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-637_hsa-mir-523	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-637_hsa-mir-523	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-637_hsa-mir-523	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+IDC Breast Radvanyi.39	tissue_cluster	Breast
+END Ovarian Hendrix.6	tissue_cluster	Ovarian
+Breast	tissue_cluster	CA Breast Sorlie.17
+Breast	tissue_cluster	IDC Breast Radvanyi.16
+Breast	tissue_cluster	CA Breast Richardson.55
+Breast	tissue_cluster	CA Breast Sorlie.23
+Breast	tissue_cluster	IDC Breast Radvanyi.65
+Breast	tissue_cluster	IDC Breast Radvanyi.24
+hsa-mir-185	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-185	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-185	cluster_mirna	AC Brain Sun.22
+SQ Lung Bhattacharjee.22	tissue_cluster	Lung
+SQ Lung Bhattacharjee.23	cluster_mirna	hsa-mir-586
+SQ Lung Bhattacharjee.23	tissue_cluster	Lung
+hsa-mir-153	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-153	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+IDC Breast Radvanyi.24	cluster_mirna	hsa-mir-1291
+AD Lung Beer.9	tissue_cluster	Lung
+hsa-mir-507_hsa-mir-557	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-507_hsa-mir-557	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-507_hsa-mir-557	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-507_hsa-mir-557	cluster_mirna	CA Colon Graudens.40
+hsa-mir-507_hsa-mir-557	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-507_hsa-mir-557	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-507_hsa-mir-557	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+GL Brain Rickman.16	cluster_mirna	hsa-mir-586
+GL Brain Rickman.16	tissue_cluster	Brain
+END Ovarian Hendrix.32	cluster_mirna	hsa-mir-802
+END Ovarian Hendrix.32	tissue_cluster	Ovarian
+AD Lung Beer.5	cluster_mirna	hsa-mir-1292
+AD Lung Beer.5	tissue_cluster	Lung
+AC Brain Sun.16	tissue_cluster	Brain
+AC Brain Sun.16	cluster_mirna	hsa-mir-655
+END Ovarian Hendrix.35	tissue_cluster	Ovarian
+END Ovarian Hendrix.35	cluster_mirna	hsa-mir-1276
+hsa-mir-621	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-621	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-621	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-621	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-621	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-621	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+SRS Ovarian Hendrix.14	cluster_mirna	hsa-mir-1290
+SRS Ovarian Hendrix.14	tissue_cluster	Ovarian
+hsa-mir-127-5p	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-127-5p	cluster_mirna	CCC Ovarian Hendrix.33
+hsa-mir-127-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-1292	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-1292	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-1290	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-1290	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-1290	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-1290	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-1291	mirna_hallmark_of_cancer	Self Sufficiency in Growth Signals
+hsa-mir-1291	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-1291	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-1291	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-1291	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-1291	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-579	cluster_mirna	TU Prostate Lapointe.7
+hsa-mir-579	mirna_hallmark_of_cancer	Sustained Angiogenesis
+CA Bladder Dyrskjot.82	cluster_mirna	hsa-mir-519d
+GL Brain Rickman.2	tissue_cluster	Brain
+GLB Brain Sun.41	tissue_cluster	Brain
+hsa-mir-200b_hsa-mir-200c_hsa-mir-200a	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-200b_hsa-mir-200c_hsa-mir-200a	cluster_mirna	ME Melanoma Hoek.35
+CCC Ovarian Hendrix.11	tissue_cluster	Ovarian
+GL Brain Rickman.8	tissue_cluster	Brain
+GL Brain Rickman.8	cluster_mirna	hsa-mir-634
+OD Brain Bredel.15	tissue_cluster	Brain
+Melanoma	tissue_cluster	ME Melanoma Hoek.35
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-802
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-376a_hsa-mir-376b_hsa-mir-376c
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-1245_hsa-mir-1245b-5p
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-634
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-222
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-548d-3p
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-586
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-939
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-1207-5p
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-615-3p
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-331-3p
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-607
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-296-5p
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-340
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-519d
+Self Sufficiency in Growth Signals	mirna_hallmark_of_cancer	hsa-mir-29b_hsa-mir-29c_hsa-mir-29a_hsa-mir-767-5p_hsa-mir-450b-5p
+AC Brain Sun.22	tissue_cluster	Brain
+hsa-mir-802	cluster_mirna	IDC Breast Radvanyi.65
+hsa-mir-802	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+END Ovarian Hendrix.22	cluster_mirna	hsa-mir-944
+END Ovarian Hendrix.22	tissue_cluster	Ovarian
+hsa-mir-376a_hsa-mir-376b_hsa-mir-376c	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-376a_hsa-mir-376b_hsa-mir-376c	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-376a_hsa-mir-376b_hsa-mir-376c	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-376a_hsa-mir-376b_hsa-mir-376c	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-376a_hsa-mir-376b_hsa-mir-376c	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-376a_hsa-mir-376b_hsa-mir-376c	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-655	mirna_hallmark_of_cancer	Genome Instability and Mutation
+hsa-mir-634	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-634	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-634	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-634	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-25
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-1245_hsa-mir-1245b-5p
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-101
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-548d-3p
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-96
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-1276
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-331-3p
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-296-5p
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-654-5p
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-519d
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-338-5p
+Genome Instability and Mutation	mirna_hallmark_of_cancer	hsa-mir-1264
+Leukemia	tissue_cluster	B-CLL Leukemia Haslinger.9
+Leukemia	tissue_cluster	B-CLL Leukemia Haslinger.62
+AD Lung Beer.43	tissue_cluster	Lung
+AC Brain Sun.5	tissue_cluster	Brain
+Prostate	tissue_cluster	TU Prostate Lapointe.7
+hsa-mir-1207-5p	cluster_mirna	AD Ovarian Welsh.22
+hsa-mir-1207-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-615-3p	cluster_mirna	HSCC Head-Neck Cromer.18
+hsa-mir-615-3p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-331-3p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-331-3p	mirna_hallmark_of_cancer	Sustained Angiogenesis
+hsa-mir-331-3p	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-331-3p	mirna_hallmark_of_cancer	Limitless Replicative Potential
+hsa-mir-331-3p	cluster_mirna	SMCL Lung Bhattacharjee.61
+hsa-mir-331-3p	mirna_hallmark_of_cancer	Evading Immune Detection
+hsa-mir-331-3p	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+Sustained Angiogenesis	mirna_hallmark_of_cancer	hsa-mir-767-5p
+Sustained Angiogenesis	mirna_hallmark_of_cancer	hsa-mir-296-5p
+Sustained Angiogenesis	mirna_hallmark_of_cancer	hsa-mir-519d
+Sustained Angiogenesis	mirna_hallmark_of_cancer	hsa-mir-29b_hsa-mir-29c_hsa-mir-29a_hsa-mir-767-5p_hsa-mir-450b-5p
+Sustained Angiogenesis	mirna_hallmark_of_cancer	hsa-mir-222
+GL Brain Bredel.79	tissue_cluster	Brain
+GL Brain Bredel.79	cluster_mirna	hsa-mir-340
+hsa-mir-607	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+Evading Immune Detection	mirna_hallmark_of_cancer	hsa-mir-325
+Evading Immune Detection	mirna_hallmark_of_cancer	hsa-mir-1245_hsa-mir-1245b-5p
+Evading Immune Detection	mirna_hallmark_of_cancer	hsa-mir-519d
+Evading Immune Detection	mirna_hallmark_of_cancer	hsa-mir-586
+SMCL Lung Bhattacharjee.35	tissue_cluster	Lung
+hsa-mir-96	cluster_mirna	CA Colon Graudens.38
+COID Lung Bhattacharjee.92	tissue_cluster	Lung
+AD Lung Stearman.19	tissue_cluster	Lung
+hsa-mir-767-5p	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-767-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-767-5p	cluster_mirna	AD Ovarian Welsh.20
+hsa-mir-325	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-325	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+AD Lung Beer.32	tissue_cluster	Lung
+SQ Lung Bhattacharjee.13	tissue_cluster	Lung
+SQ Lung Bhattacharjee.13	cluster_mirna	hsa-mir-296-5p
+CCC Ovarian Hendrix.33	tissue_cluster	Ovarian
+Lung	tissue_cluster	AD Lung Bhattacharjee.0
+Lung	tissue_cluster	SMCL Lung Bhattacharjee.61
+Lung	tissue_cluster	COID Lung Bhattacharjee.24
+Lung	tissue_cluster	AD Lung Beer.35
+AD Lung Beer.35	cluster_mirna	hsa-mir-222
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a_hsa-mir-767-5p_hsa-mir-450b-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-29b_hsa-mir-29c_hsa-mir-29a_hsa-mir-767-5p_hsa-mir-450b-5p	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-338-5p	cluster_mirna	AD Lung Bhattacharjee.0
+hsa-mir-338-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+CA Bladder Dyrskjot.40	cluster_mirna	hsa-mir-548d-3p
+hsa-mir-25	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+B-CLL Leukemia Haslinger.9	cluster_mirna	hsa-mir-1245_hsa-mir-1245b-5p
+Ovarian	tissue_cluster	AD Ovarian Welsh.26
+Ovarian	tissue_cluster	AD Ovarian Welsh.22
+Ovarian	tissue_cluster	AD Ovarian Welsh.20
+hsa-mir-1245_hsa-mir-1245b-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-1245_hsa-mir-1245b-5p	mirna_hallmark_of_cancer	Tumor Promoting Inflammation
+hsa-mir-1245_hsa-mir-1245b-5p	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+hsa-mir-222	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-222	mirna_hallmark_of_cancer	Tissue Invasion and Metastasis
+Tissue Invasion and Metastasis	mirna_hallmark_of_cancer	hsa-mir-199b-3p_hsa-mir-199a-3p
+Tissue Invasion and Metastasis	mirna_hallmark_of_cancer	hsa-mir-548d-3p
+Tissue Invasion and Metastasis	mirna_hallmark_of_cancer	hsa-mir-586
+Tissue Invasion and Metastasis	mirna_hallmark_of_cancer	hsa-mir-296-5p
+Tissue Invasion and Metastasis	mirna_hallmark_of_cancer	hsa-mir-507
+Tissue Invasion and Metastasis	mirna_hallmark_of_cancer	hsa-mir-519d
+Tissue Invasion and Metastasis	mirna_hallmark_of_cancer	hsa-mir-944
+hsa-mir-101	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+MM Myeloma Zhan.33	cluster_mirna	hsa-mir-507
+MM Myeloma Zhan.33	tissue_cluster	Myeloma
+hsa-mir-548d-3p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+Tumor Promoting Inflammation	mirna_hallmark_of_cancer	hsa-mir-519d
+Tumor Promoting Inflammation	mirna_hallmark_of_cancer	hsa-mir-586
+CA Colon Graudens.38	tissue_cluster	Colon
+hsa-mir-1276	cluster_mirna	CA Bladder Dyrskjot.51
+hsa-mir-586	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-586	mirna_hallmark_of_cancer	Reprogramming Energy Metabolism
+hsa-mir-939	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+GL Brain Rickman.31	tissue_cluster	Brain
+Myeloma	tissue_cluster	MM Myeloma Zhan.29
+hsa-mir-296-5p	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+hsa-mir-340	mirna_hallmark_of_cancer	Insensitivity to Antigrowth Signals
+Insensitivity to Antigrowth Signals	mirna_hallmark_of_cancer	hsa-mir-519d
+Insensitivity to Antigrowth Signals	mirna_hallmark_of_cancer	hsa-mir-1264
+CA Colon Graudens.40	tissue_cluster	Colon

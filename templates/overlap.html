@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}        <script src="sorttable.js"></script>
+        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#geneTable").tablesorter( {sortList: [[4,1], [3,0], [1,0]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}
+            <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>{{ go_term|title }} ({{ go_id }}) Genes Targeted by {{ miRNA }} in {{ cancer }} Cluster {{ cluster }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Table contains all genes in the {{ cancer }} cluster number {{ cluster }}. If a gene harbors a predicted miRNA binding site by one of the three inference methods it is displayed in the final column: M = Weeder-miRvestigator predicted site, P = PITA predicted site and T = TargetScan predicted site.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='geneTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>Entrez ID</th>
+                                <th class='header_middle'>Symbol</th>
+                                <th class='header_middle'>Description</th>
+                                <th class='header_middle'>{{ miRNA }}</th>
+                                <th class='header_right'>{{ go_id}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in entries %}
+                            <tr>
+                                <td class='entry_left'><a href='http://www.ncbi.nlm.nih.gov/gene/{{ entry.entrez_id }}'>{{ entry.entrez_id }}</a></td>
+                                <td class='entry_middle'>{% if entry.symbol %}{{ entry.symbol }}{% else %}<span class='matchBackground'>zzz999</span>{% endif %}</td>
+                                <td class='entry_middle'>{% if entry.description %}{{ entry.description }}{% else %}<span class='matchBackground'>zzz999</span>{% endif %}</td>
+                                <td class='entry_middle'><center>
+                                    <table>
+                                        <tr>
+                                            {% if entry.target_miRvestigator or entry.target_PITA or entry.target_TargetScan %}
+                                                {% if entry.target_miRvestigator %}<td class='center3'>M</td>{% endif %}
+                                                {% if entry.target_PITA %}<td class='center3'>P</td>{% endif %}
+                                                {% if entry.target_TargetScan %}<td class='center3'>T</td>{% endif %}
+                                            {% else %}
+                                                <span class='matchBackground'>zzz999</span>
+                                            {% endif %}
+                                        </tr>
+                                    </table>
+                                </center></td>
+                                <td class='entry_right'>{{ entry.go_gene }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

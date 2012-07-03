@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}      <script src="sorttable.js"></script>
+        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#coincidentTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}
+        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Clusters with Coincident Inferred miRNA Regulator and Functional Enrichment</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='coincidentTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>Dataset</th>
+                                <th class='header_middle'>Cluster</th>
+                                <th class='header_middle'>miRNA(s)</th>
+                                <th class='header_right'>Gene Ontology - ID Term & Category</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in entries %}
+                            <tr>
+                                <td class='entry_left'><a href='/dataset/{{ entry.dataset }}'>{{ entry.dataset }}</a></td>
+                                <td class='entry_middle'><a href='/cluster/{{ entry.dataset }}/{{ entry.number }}'>{{ entry.number }}</a></td>
+                                <td class='entry_middle'>
+                                    {% for miRNA, mature_sequence_id in entry.miRNAs.items %}
+                                    <a href='/miRNA/{{ entry.dataset }}/{{ entry.number }}/{{ mature_sequence_id }}'>{{ miRNA }}</a><br/>
+                                    {% endfor %}
+                                </td>
+                                <td class='entry_right'>
+                                    <table>
+                                        {% for go_id, data in entry.funcEnrich.items %}
+                                        <tr>
+                                            <td><a href='/{{ entry.dataset }}/{{ entry.number }}/{{ go_id }}/genes'>{{ go_id }}</a><br/></td>
+                                            <td>{{ data.category }}</td>
+                                            <td>{{ data.term }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

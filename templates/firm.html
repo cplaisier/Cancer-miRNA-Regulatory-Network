@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}
+{% endblock %}
+{% block content_col1 %}
+            <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Framework for Inference of Regulation by miRNAs (FIRM)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>By integrating the three best performing algorithms to infer miRNA mediate regulation from co-expression signatures we have constructed a generalizable Framework for Inference of Regulation by miRNAs (FIRM).  FIRM is available as a Python script capable of identifying putative miRNA mediated regulation from transcriptome co-expression signatures.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>FIRM Dependencies</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>FIRM was developed in Linux, but by ensuring the following dependencies are met could be modified to work in Windows. In order to function properly this script requires:
+                        <ol>
+                            <li><b>Python 2.6 or greater (but less than 3.X)</b> - the lastest python can be downloaded <a href='http://www.python.org/download/' target='_blank'>here</a>.</li>
+                            <li><b>R</b> - the lastest R can be found <a href='http://cran.r-project.org/' target='_blank'>here</a>.</li>
+                            <li><b>Weeder</b> - the lastest Weeder can be found <a href='http://159.149.109.9/modtools/downloads/weeder.html' target='_blank'>here</a>. The paths of this must be configured to identify the location of the frequency files packaged with FIRM. A successful installation of Weeder will allow a user to type 'weederlauncher' at the command line and will run the 'weederlauncher.out' program from Weeder 1.4.2.</li>
+                        </ol>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Download FIRM</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>We provide FIRM as a tarred and gzipped file:
+                        <ul>
+                            <li><a href='/static/firm/FIRM.tgz'>Download FIRM.tgz (16.5MB)</a></li>
+                        </ul>
+                        Once downloaded navigate a Linux command prompt to the directory containing the file and run:
+                        <pre>    prompt> tar xvzf FIRM.tgz</pre>
+                        Here is a brief description of the files and folders in the FIRM directory:
+                        <pre>    prompt> ls FIRM
+
+    FIRM.py  TargetPredictionDatabases  common  exp  miRvestigator.py  pssm.py  weeder_FreqFiles</pre>
+                        <ul>
+                            <li><b>FIRM.py</b> - is the script to run the analysis.</li>
+                            <li><b>TargetPredictionDatabases</b> - directory containing the target prediction databases PITA and TargetScan.</li>
+                            <li><b>common</b> - directory containing general files needed to run the analysis.</li>
+                            <li><b>exp</b> - directory where you should put your co-expression signatures files that are to be analyzed. The files should look like this:
+                            <pre>    Gene	Group
+    NM_000014	32
+    NM_000015	23
+    ...</pre>
+                            This file is expected to have a header.  It has two columns:
+                            <ol>
+                                <li>RefSeq Transcript ID</li>
+                                <li>Co-expression signature number</li>
+                            </ol>
+                            </li>
+                            <li><b>miRvestigator.py</b> - python module of the miRvestiagtor analysis script.</li>
+                            <li><b>pssm.py</b> - python module to be a container for PSSM objects.</li>
+                            <li><b>weeder_FreqFiles</b> - the Weeder frequence files that should be placed in the appropriate FreqFile location as determined by the way Weeder was installed.</li>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Installing and Running FIRM</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>If the dependencies above are met then to run FIRM will simply require the user to create the appropriate co-expression signature files and place them in the 'exp' directory.  Then the analysis can be started by typing:
+                        <pre>    prompt> python FIRM.py</pre>
+                        </p>
+                    </td>
+                </tr>
+<tr>
+                    <td class='header'>
+                        <div class='center1'>Interpreting Results from FIRM</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>FIRM limits the Weeder-miRvestigator method to only those inferences of miRNA mediated regulation with a perfect 7- or 8-mer miRvestigator complementarity p-value (p-value = 6.1 x 10<sup>-5</sup> or 1.5 x 10<sup>-5</sup>, respectively) to a miRNA seed in miRBase.  Inferences of miRNA mediated regulation from the PITA and TargetScan enrichment of predicted miRNA target genes methods were filtered to include only those with Benjamini-Hochberg FDR = 0.001 and at least 10% of genes had a predicted miRNA binding site.  After FIRM finished running it will produce a file 'combinedResults.csv' in the main FIRM directory.  For the This file will contain a listing of all co-expression signatures that were predicted to be regualted by a miRNA.  The column headings are:
+                        <ol>
+                            <li><b>Dataset</b> - the dataset where the co-expression signature was observed.</li>
+                            <li><b>signature</b> - nubmer for the co-expression signature.</li>
+                            <li><b>miRvestigator.miRNA</b> - miRvestigator predicted miRNA(s).</li>
+                            <li><b>miRvestigator.model</b> - model that fit the miRNA to the PSSM found through Weeder, either 7mer or 8mer.</li>
+                            <li><b>miRvestigator.mature_seq_ids</b> - the miRBase mature sequence IDs for the predicted miRNAs.</li>
+                            <li><b>PITA.miRNA</b> - PITA predicted mirna(s)</li>
+                            <li><b>PITA.percent_targets</b> - percent of co-expression cluster genes with predicted target sites in PITA.</li>
+                            <li><b>PITA.P_Value</b> - p-value for the hypergeometric enrichment of miRNA(s).</li>
+                            <li><b>PITA.mature_seq_ids</b> - the miRBase mature sequence IDs for the predicted miRNAs.</li>
+                            <li><b>TargetScan.miRNA</b> - TargetScan predicted mirna(s)</li>
+                            <li><b>TargetScan.percent_targets</b> - percent of co-expression cluster genes with predicted target sites in TargetScan.</li>
+                            <li><b>TargetScan.P_Value</b> - p-value for the hypergeometric enrichment of miRNA(s).</li>
+                            <li><b>TargetScan.mature_seq_ids</b> - the miRBase mature sequence IDs for the predicted miRNAs.</li>
+                        </ol>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

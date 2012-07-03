@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}        <!-- JSON support for IE (needed to use JS API) -->
+        <script type='text/javascript' src='/static/js/cytoscape_web/json2.min.js'></script>
+        <!-- Flash embedding utility (needed to embed Cytoscape Web) -->
+        <script type='text/javascript' src='/static/js/cytoscape_web/AC_OETags.min.js'></script>
+        <!-- Cytoscape Web JS API (needed to reference org.cytoscapeweb.Visualization) -->
+        <script type='text/javascript' src='/static/js/cytoscape_web/cytoscapeweb.min.js'></script>
+        <script type='text/javascript' src='/static/jquery-1.6.1.min.js'></script> 
+        <script type='text/javascript' src='/static/jquery.tablesorter.min.js'></script>
+        <script type='text/javascript'>
+            window.onload=function() {
+            
+                // id of Cytoscape Web container div
+                var div_id = 'cytoscapeweb';
+                
+                // initialization options
+                var options = {
+                    // where you have the Cytoscape Web SWF
+                    swfPath: '/static/swf/CytoscapeWeb',
+                    // where you have the Flash installer SWF
+                    flashInstallerPath: '/static/swf/playerProductInstall'
+                };
+                
+                // init and draw
+                var vis = new org.cytoscapeweb.Visualization(div_id, options);
+
+                var shapeMapper = {
+                    attrName: 'type',
+                    entries:  [ { attrValue: 'tissue', value: 'ROUNDRECT' },
+                                { attrValue: 'cluster', value: 'ELLIPSE' },
+                                { attrValue: 'mirna', value: 'DIAMOND' } ]
+                };
+
+                var colorMapper = {
+                    attrName: 'type',
+                    entries:  [ { attrValue: 'tissue', value: '#0000ff' },
+                                { attrValue: 'cluster', value: '#00ff00' },
+                                { attrValue: 'mirna', value: '#ff0000' },
+                                { attrValue: 'go_id', value: '#ffcc00' } ]
+                };
+
+                var colorEdgeMapper = {
+                    attrName: 'type',
+                    entries:  [ { attrValue: 'tissue_cluster', value: '#00ff00' },
+                                { attrValue: 'cluster_mirna', value: '#ff0000' },
+                                { attrValue: 'cluster_go_id', value: '#ffcc00' } ]
+                };
+
+                var visualStyle = {
+                   global: {
+                       backgroundColor: '#ffffff'
+                   },
+                   nodes: {
+                       label: { passthroughMapper: {attrName: 'id' } },
+                       labelFontSize: 15,
+                       shape: { discreteMapper: shapeMapper },
+                       color: { discreteMapper: colorMapper },
+                       borderWidth: 0,
+                       labelHorizontalAnchor: 'center'
+                           
+                   },
+                   edges: {
+                       width: {
+                           defaultValue: 1,
+                           //continuousMapper: { attrName: 'weight', minAttrValue:0.0, maxAttrValue:1.0, minValue: 1, maxValue: 12 }
+                           //passthroughMapper: { attrName: 'weight' }
+                       },
+                       color: { discreteMapper: colorEdgeMapper }
+                   }
+                };
+                
+                vis.ready(function() {
+
+                    // filter out go_id nodes
+                    vis.filter('nodes', function(node) {
+                        return node.data.type != 'go_id';
+                    });
+
+                    // add a listener for when nodes and edges are clicked
+                    vis.addListener("click", "nodes", function(event) {
+                        handle_click(event);
+                    })
+                    .addListener("click", "edges", function(event) {
+                        handle_click(event);
+                    });
+                    
+                    function handle_click(event) {
+                         var target = event.target;
+                         
+                         clear();
+                         print("event.group = " + event.group);
+                         for (var i in target.data) {
+                            var variable_name = i;
+                            var variable_value = target.data[i];
+                            print( "event.target.data." + variable_name + " = " + variable_value );
+                         }
+                    }
+                    
+                    function clear() {
+                        document.getElementById("information").innerHTML = "";
+                    }
+                
+                    function print(msg) {
+                        document.getElementById("information").innerHTML += "<p>" + msg + "</p>";
+                    }
+                });
+
+                var forceDirectedLayout = { 
+                  name: 'ForceDirected',
+                  options: {
+                    weightAttr:    'weight',
+                    minWeight:     0.0,
+                    maxWeight:     1.0
+                  }
+                };
+
+                $.ajax({
+                    url: '/cytoscape_web_common_mirna_go',
+                    success: function(data){
+                        if (typeof data !== 'string') {
+                            if (window.ActiveXObject) { // IE
+                                data = data.xml;
+                            }
+                            else {
+                                data = (new XMLSerializer()).serializeToString(data);
+                            }
+                        }
+                        vis.draw({ network:data, visualStyle:visualStyle, layout:forceDirectedLayout });
+                    },
+                    error: function(){
+                        show_msg({
+                            type: 'error',
+                            target:'#cytoscapeweb',
+                            message: 'The file you specified could not be loaded. url=' + options.url,
+                            heading: 'File not found',
+                        });
+                    }
+                });
+                // vis.draw({ network: networ_json });
+            };
+
+        </script>
+        
+        <style>
+            /* The Cytoscape Web container must have its dimensions set. */
+            /* html, body { height: 100%; width: 100%; padding: 0; margin: 0; } */
+            #cytoscapeweb { width: 800px; height: 650px; }
+            #information { width: 800px; height: 300px; }
+        </style>
+{% endblock %}
+{% block content_col1 %}
+    </br>&nbsp;</br>
+        <p>
+        <center><table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Common miRNA Regulator and Common GO Term</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id='cytoscapeweb' class='center'>
+                            Cytoscape Web will replace the contents of this div with your graph.
+                        </div>
+                        <div id='information' class='center'>
+                            <p>Click nodes or edges to see their information here.</p>
+                        </div>
+                    </td>
+                </tr>
+        </table></center>
+        </p>
+{% endblock %}

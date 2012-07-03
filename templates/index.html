@@ -1,0 +1,1429 @@
+{% extends 'base.html' %}
+
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+
+{% block javascript %}<script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#infTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+            } 
+            );
+            $("#miRNA").html($("#miRNA option").sort(function (a, b) {
+                return a.text == b.text ? 0 : a.text < b.text ? -1 : 1
+            }))
+        </script>
+{% endblock %}
+
+{% block content_col1 %}
+        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Cancer miRNA Regulatory Network</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>The cancer miRNA regulatory network was constructed by inferring miRNA mediated regulation for 2,240 gene co-expression signatures from 46 cancer transcriptome profiling studies. The cancer miRNA regulatory network can be used to identify clinically relevant miRNAs that are candidates for improved diagnostics, prognostics and therapeutics.</td>
+                </tr>
+            </table>
+        </p>
+        <form name='form1' id='form1'>
+            <center><table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Browse Network</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>The network can be browsed starting with four different criteria:
+                        </p>
+                        <table class='fill'>
+                            <tr>
+                                <td class='header2'>Cancer:</td>
+                                <td><select name='cancer' id='cancer' OnChange='location.href=form1.cancer.options[selectedIndex].value'>
+                                        <option value='nothing' selected='selected'>Select a Cancer</option>
+                                        <option value='cancer/Bladder'>Bladder</option>
+                                    
+                                        <option value='cancer/Brain'>Brain</option>
+                                    
+                                        <option value='cancer/Breast'>Breast</option>
+                                    
+                                        <option value='cancer/Colon'>Colon</option>
+                                    
+                                        <option value='cancer/Head-neck'>Head-neck</option>
+                                    
+                                        <option value='cancer/Leukemia'>Leukemia</option>
+                                    
+                                        <option value='cancer/Lung'>Lung</option>
+                                    
+                                        <option value='cancer/Lymphoma'>Lymphoma</option>
+                                    
+                                        <option value='cancer/Melanoma'>Melanoma</option>
+                                    
+                                        <option value='cancer/Mesothelioma'>Mesothelioma</option>
+                                    
+                                        <option value='cancer/Myeloma'>Myeloma</option>
+                                    
+                                        <option value='cancer/Ovarian'>Ovarian</option>
+                                    
+                                        <option value='cancer/Pancreas'>Pancreas</option>
+                                    
+                                        <option value='cancer/Prostate'>Prostate</option>
+                                    
+                                        <option value='cancer/Renal'>Renal</option>
+                                    
+                                        <option value='cancer/Seminoma'>Seminoma</option>
+                                    
+                                </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+<tr>
+                    <td>
+                        <table class='fill'>
+                            <tr>
+                                <td class='header2'>Hallmark of Cancer:</td>
+                                <td><select name='hallmark' id='hallmark' OnChange='location.href=form1.hallmark.options[selectedIndex].value'>
+                                        <option value='nothing' selected='selected'>Select a Hallmark of Cancer</option>
+                                        <option value='hallmark/evading_apoptosis'>Evading Apoptosis</option>
+                                        <option value='hallmark/evading_immune_detection'>Evading Immune Detection</option>
+                                        <option value='hallmark/genome_instability_and_mutation'>Genome Instability and Mutation</option>
+                                        <option value='hallmark/insensitivity_to_antigrowth_signals'>Insensitivity to Antigrowth Signals</option>
+                                        <option value='hallmark/limitless_replicative_potential'>Limitless Replicative Potential</option>
+                                        <option value='hallmark/reprogramming_energy_metabolism'>Reprogramming Energy Metabolism</option>
+                                        <option value='hallmark/self_sufficiency_in_growth_signals'>Self Sufficiency in Growth Signals</option>
+                                        <option value='hallmark/sustained_angiogenesis'>Sustained Angiogenesis</option>
+                                        <option value='hallmark/tissue_invasion_and_metastasis'>Tissue Invasion and Metastasis</option>
+                                        <option value='hallmark/tumor_promoting_inflammation'>Tumor Promting Inflammation</option>
+                                    
+                                </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class='fill'>
+                            <tr>
+                                <td class='header2'>Putative Regulatory miRNA:</td>
+                                <td><select name='miRNA' id='miRNA' OnChange='location.href=form1.miRNA.options[selectedIndex].value'>
+                                    <option value='nothing' selected='selected'>Select a miRNA</option>
+                                    
+                                    <option value='/specific_miRNA/MIMAT0000062'>hsa-let-7a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000063'>hsa-let-7b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000064'>hsa-let-7c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000065'>hsa-let-7d</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004484'>hsa-let-7d*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000066'>hsa-let-7e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004485'>hsa-let-7e*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000067'>hsa-let-7f</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000414'>hsa-let-7g</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000415'>hsa-let-7i</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000099'>hsa-mir-101</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004513'>hsa-mir-101*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000101'>hsa-mir-103a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0007402'>hsa-mir-103b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000102'>hsa-mir-105</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000103'>hsa-mir-106a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000680'>hsa-mir-106b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005824'>hsa-mir-1179</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005825'>hsa-mir-1180</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005826'>hsa-mir-1181</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005827'>hsa-mir-1182</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005828'>hsa-mir-1183</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005863'>hsa-mir-1200</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005865'>hsa-mir-1202</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005866'>hsa-mir-1203</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005868'>hsa-mir-1204</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005869'>hsa-mir-1205</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005870'>hsa-mir-1206</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005872'>hsa-mir-1207-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005871'>hsa-mir-1207-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005873'>hsa-mir-1208</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000421'>hsa-mir-122</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005459'>hsa-mir-1224-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005458'>hsa-mir-1224-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005573'>hsa-mir-1225-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005572'>hsa-mir-1225-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005577'>hsa-mir-1226</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005580'>hsa-mir-1227</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005583'>hsa-mir-1228</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005584'>hsa-mir-1229</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005586'>hsa-mir-1231</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005588'>hsa-mir-1233</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005589'>hsa-mir-1234</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005591'>hsa-mir-1236</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005592'>hsa-mir-1237</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005593'>hsa-mir-1238</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000422'>hsa-mir-124</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005894'>hsa-mir-1243</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005896'>hsa-mir-1244</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005897'>hsa-mir-1245</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019950'>hsa-mir-1245b-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005898'>hsa-mir-1246</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005899'>hsa-mir-1247</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005901'>hsa-mir-1249</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005902'>hsa-mir-1250</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005903'>hsa-mir-1251</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005944'>hsa-mir-1252</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005904'>hsa-mir-1253</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005905'>hsa-mir-1254</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005906'>hsa-mir-1255a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005945'>hsa-mir-1255b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005907'>hsa-mir-1256</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005908'>hsa-mir-1257</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005909'>hsa-mir-1258</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004602'>hsa-mir-125a-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000443'>hsa-mir-125a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000423'>hsa-mir-125b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000445'>hsa-mir-126</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005911'>hsa-mir-1260</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015041'>hsa-mir-1260b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005913'>hsa-mir-1261</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005914'>hsa-mir-1262</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005915'>hsa-mir-1263</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005791'>hsa-mir-1264</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005918'>hsa-mir-1265</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005920'>hsa-mir-1266</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005923'>hsa-mir-1269</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019059'>hsa-mir-1269b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005924'>hsa-mir-1270</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005796'>hsa-mir-1271</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005925'>hsa-mir-1272</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005926'>hsa-mir-1273</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015017'>hsa-mir-1273c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015090'>hsa-mir-1273d</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018079'>hsa-mir-1273e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0020601'>hsa-mir-1273f</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0020602'>hsa-mir-1273g</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005929'>hsa-mir-1275</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004604'>hsa-mir-127-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005930'>hsa-mir-1276</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005933'>hsa-mir-1277</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005936'>hsa-mir-1278</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005937'>hsa-mir-1279</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000424'>hsa-mir-128</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005946'>hsa-mir-1280</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005939'>hsa-mir-1281</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005940'>hsa-mir-1282</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005799'>hsa-mir-1283</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005941'>hsa-mir-1284</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005876'>hsa-mir-1285</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005877'>hsa-mir-1286</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005878'>hsa-mir-1287</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005942'>hsa-mir-1288</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005879'>hsa-mir-1289</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005880'>hsa-mir-1290</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005881'>hsa-mir-1291</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005943'>hsa-mir-1292</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005883'>hsa-mir-1293</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005884'>hsa-mir-1294</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005885'>hsa-mir-1295</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000242'>hsa-mir-129-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005794'>hsa-mir-1296</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005886'>hsa-mir-1297</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005800'>hsa-mir-1298</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005887'>hsa-mir-1299</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005797'>hsa-mir-1301</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005890'>hsa-mir-1302</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005891'>hsa-mir-1303</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005892'>hsa-mir-1304</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005893'>hsa-mir-1305</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005950'>hsa-mir-1306</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000425'>hsa-mir-130a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000691'>hsa-mir-130b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000426'>hsa-mir-132</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004594'>hsa-mir-132*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005952'>hsa-mir-1321</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005953'>hsa-mir-1322</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005795'>hsa-mir-1323</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005956'>hsa-mir-1324</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000427'>hsa-mir-133a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000770'>hsa-mir-133b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000447'>hsa-mir-134</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000428'>hsa-mir-135a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000448'>hsa-mir-136</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000430'>hsa-mir-138</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004607'>hsa-mir-138-1*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004596'>hsa-mir-138-2*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004552'>hsa-mir-139-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000250'>hsa-mir-139-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004597'>hsa-mir-140-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000431'>hsa-mir-140-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000432'>hsa-mir-141</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000434'>hsa-mir-142-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000433'>hsa-mir-142-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000435'>hsa-mir-143</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000436'>hsa-mir-144</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000437'>hsa-mir-145</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0007347'>hsa-mir-1469</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000449'>hsa-mir-146a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004766'>hsa-mir-146b-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002809'>hsa-mir-146b-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000251'>hsa-mir-147</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0007349'>hsa-mir-1471</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004928'>hsa-mir-147b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000243'>hsa-mir-148a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000759'>hsa-mir-148b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000450'>hsa-mir-149</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000451'>hsa-mir-150</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000757'>hsa-mir-151-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000438'>hsa-mir-152</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000439'>hsa-mir-153</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0007400'>hsa-mir-1538</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000452'>hsa-mir-154</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000646'>hsa-mir-155</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000068'>hsa-mir-15a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000417'>hsa-mir-15b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000069'>hsa-mir-16</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000070'>hsa-mir-17</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000256'>hsa-mir-181a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000257'>hsa-mir-181b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000258'>hsa-mir-181c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002821'>hsa-mir-181d</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000259'>hsa-mir-182</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0006767'>hsa-mir-1827</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000261'>hsa-mir-183</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000454'>hsa-mir-184</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000455'>hsa-mir-185</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000456'>hsa-mir-186</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000262'>hsa-mir-187</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004613'>hsa-mir-188-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000457'>hsa-mir-188-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000072'>hsa-mir-18a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001412'>hsa-mir-18b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000458'>hsa-mir-190</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004929'>hsa-mir-190b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000440'>hsa-mir-191</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000222'>hsa-mir-192</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000459'>hsa-mir-193a-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004614'>hsa-mir-193a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002819'>hsa-mir-193b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000460'>hsa-mir-194</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000461'>hsa-mir-195</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000226'>hsa-mir-196a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001080'>hsa-mir-196b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000227'>hsa-mir-197</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000228'>hsa-mir-198</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000232'>hsa-mir-199a-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000231'>hsa-mir-199a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004563'>hsa-mir-199b-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000263'>hsa-mir-199b-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000073'>hsa-mir-19a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000074'>hsa-mir-19b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000682'>hsa-mir-200a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000318'>hsa-mir-200b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000617'>hsa-mir-200c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002811'>hsa-mir-202</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000264'>hsa-mir-203</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000265'>hsa-mir-204</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000266'>hsa-mir-205</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000462'>hsa-mir-206</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000241'>hsa-mir-208a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004960'>hsa-mir-208b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000075'>hsa-mir-20a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001413'>hsa-mir-20b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000076'>hsa-mir-21</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000267'>hsa-mir-210</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000268'>hsa-mir-211</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000269'>hsa-mir-212</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000271'>hsa-mir-214</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000273'>hsa-mir-216a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004959'>hsa-mir-216b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000274'>hsa-mir-217</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000275'>hsa-mir-218</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004567'>hsa-mir-219-1-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004675'>hsa-mir-219-2-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000276'>hsa-mir-219-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000077'>hsa-mir-22</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000279'>hsa-mir-222</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000280'>hsa-mir-223</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000281'>hsa-mir-224</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0017352'>hsa-mir-2277-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000078'>hsa-mir-23a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000418'>hsa-mir-23b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000081'>hsa-mir-25</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000082'>hsa-mir-26a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000083'>hsa-mir-26b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000084'>hsa-mir-27a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000419'>hsa-mir-27b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004502'>hsa-mir-28-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000085'>hsa-mir-28-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000690'>hsa-mir-296-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004450'>hsa-mir-297</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000687'>hsa-mir-299-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002890'>hsa-mir-299-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000086'>hsa-mir-29a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004503'>hsa-mir-29a*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000100'>hsa-mir-29b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000681'>hsa-mir-29c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004903'>hsa-mir-300</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000688'>hsa-mir-301a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004958'>hsa-mir-301b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000684'>hsa-mir-302a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000716'>hsa-mir-302c*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005931'>hsa-mir-302e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005932'>hsa-mir-302f</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019208'>hsa-mir-3074-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000420'>hsa-mir-30b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000692'>hsa-mir-30e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015001'>hsa-mir-3135</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018985'>hsa-mir-3135b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015052'>hsa-mir-3175</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019215'>hsa-mir-3177-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015055'>hsa-mir-3178</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015063'>hsa-mir-3183</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015078'>hsa-mir-3194-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015079'>hsa-mir-3195</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000090'>hsa-mir-32</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000510'>hsa-mir-320a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005792'>hsa-mir-320b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005793'>hsa-mir-320c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0006764'>hsa-mir-320d</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015072'>hsa-mir-320e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000755'>hsa-mir-323-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004696'>hsa-mir-323-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001630'>hsa-mir-323b-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000762'>hsa-mir-324-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000761'>hsa-mir-324-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000771'>hsa-mir-325</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000756'>hsa-mir-326</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000752'>hsa-mir-328</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001629'>hsa-mir-329</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000751'>hsa-mir-330-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004693'>hsa-mir-330-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000760'>hsa-mir-331-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004700'>hsa-mir-331-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000765'>hsa-mir-335</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000754'>hsa-mir-337-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004695'>hsa-mir-337-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000763'>hsa-mir-338-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004701'>hsa-mir-338-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004702'>hsa-mir-339-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000764'>hsa-mir-339-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000091'>hsa-mir-33a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003301'>hsa-mir-33b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004692'>hsa-mir-340</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000753'>hsa-mir-342-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004694'>hsa-mir-342-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000255'>hsa-mir-34a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004676'>hsa-mir-34b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004677'>hsa-mir-34c-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000686'>hsa-mir-34c-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004682'>hsa-mir-361-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000703'>hsa-mir-361-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004683'>hsa-mir-362-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000705'>hsa-mir-362-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000707'>hsa-mir-363</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000710'>hsa-mir-365</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000719'>hsa-mir-367</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000721'>hsa-mir-369-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001621'>hsa-mir-369-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000722'>hsa-mir-370</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000723'>hsa-mir-371-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004687'>hsa-mir-371-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019892'>hsa-mir-371b-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000724'>hsa-mir-372</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000727'>hsa-mir-374a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004955'>hsa-mir-374b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000729'>hsa-mir-376a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003386'>hsa-mir-376a*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002172'>hsa-mir-376b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000720'>hsa-mir-376c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000730'>hsa-mir-377</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000732'>hsa-mir-378</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0014999'>hsa-mir-378b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0016847'>hsa-mir-378c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018926'>hsa-mir-378d</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018927'>hsa-mir-378e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018932'>hsa-mir-378f</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018937'>hsa-mir-378g</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018984'>hsa-mir-378h</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019074'>hsa-mir-378i</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000733'>hsa-mir-379</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000735'>hsa-mir-380</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000736'>hsa-mir-381</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000737'>hsa-mir-382</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000738'>hsa-mir-383</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001075'>hsa-mir-384</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001639'>hsa-mir-409-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001638'>hsa-mir-409-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002171'>hsa-mir-410</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003329'>hsa-mir-411</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002170'>hsa-mir-412</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003339'>hsa-mir-421</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001340'>hsa-mir-423-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004748'>hsa-mir-423-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001341'>hsa-mir-424</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003393'>hsa-mir-425</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001343'>hsa-mir-425*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0016890'>hsa-mir-4261</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0016913'>hsa-mir-4285</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001536'>hsa-mir-429</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001625'>hsa-mir-431</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002814'>hsa-mir-432</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001627'>hsa-mir-433</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001532'>hsa-mir-448</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001541'>hsa-mir-449a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003327'>hsa-mir-449b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0013771'>hsa-mir-449c*</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001545'>hsa-mir-450a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004910'>hsa-mir-450b-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004909'>hsa-mir-450b-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001631'>hsa-mir-451</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019840'>hsa-mir-451b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0001635'>hsa-mir-452</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003885'>hsa-mir-454</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004784'>hsa-mir-455-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003150'>hsa-mir-455-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002173'>hsa-mir-483-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004761'>hsa-mir-483-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002174'>hsa-mir-484</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002176'>hsa-mir-485-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002175'>hsa-mir-485-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004762'>hsa-mir-486-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002177'>hsa-mir-486-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002178'>hsa-mir-487a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003180'>hsa-mir-487b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004763'>hsa-mir-488</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002805'>hsa-mir-489</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002806'>hsa-mir-490-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004764'>hsa-mir-490-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004765'>hsa-mir-491-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002807'>hsa-mir-491-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002812'>hsa-mir-492</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003161'>hsa-mir-493</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002816'>hsa-mir-494</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002817'>hsa-mir-495</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002818'>hsa-mir-496</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002820'>hsa-mir-497</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002824'>hsa-mir-498</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004772'>hsa-mir-499-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002870'>hsa-mir-499-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019897'>hsa-mir-499a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004773'>hsa-mir-500a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0016925'>hsa-mir-500b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004774'>hsa-mir-501-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002872'>hsa-mir-501-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004775'>hsa-mir-502-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002873'>hsa-mir-502-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002875'>hsa-mir-504</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002876'>hsa-mir-505</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002878'>hsa-mir-506</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002879'>hsa-mir-507</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002880'>hsa-mir-508-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004778'>hsa-mir-508-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004975'>hsa-mir-509-3-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002881'>hsa-mir-509-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004779'>hsa-mir-509-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002882'>hsa-mir-510</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002823'>hsa-mir-512-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004777'>hsa-mir-513a-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002877'>hsa-mir-513a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005788'>hsa-mir-513b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005789'>hsa-mir-513c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002827'>hsa-mir-515-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002826'>hsa-mir-515-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0006778'>hsa-mir-516a-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002859'>hsa-mir-516b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002852'>hsa-mir-517a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002857'>hsa-mir-517b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002866'>hsa-mir-517c</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005457'>hsa-mir-518a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002844'>hsa-mir-518b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005456'>hsa-mir-518d-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002869'>hsa-mir-519a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002837'>hsa-mir-519b-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002832'>hsa-mir-519c-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002853'>hsa-mir-519d</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002829'>hsa-mir-519e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002833'>hsa-mir-520a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002843'>hsa-mir-520b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002855'>hsa-mir-520d-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002830'>hsa-mir-520f</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002858'>hsa-mir-520g</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002867'>hsa-mir-520h</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002868'>hsa-mir-522</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002840'>hsa-mir-523</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002850'>hsa-mir-524-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002849'>hsa-mir-524-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002839'>hsa-mir-525-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002838'>hsa-mir-525-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002835'>hsa-mir-526b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002862'>hsa-mir-527</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004780'>hsa-mir-532-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0002888'>hsa-mir-532-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003163'>hsa-mir-539</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004920'>hsa-mir-541</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003389'>hsa-mir-542-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003340'>hsa-mir-542-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004954'>hsa-mir-543</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003164'>hsa-mir-544</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015004'>hsa-mir-544b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003165'>hsa-mir-545</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003251'>hsa-mir-548a-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004803'>hsa-mir-548a-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018447'>hsa-mir-548aa</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018928'>hsa-mir-548ab</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018938'>hsa-mir-548ac</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018946'>hsa-mir-548ad</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018954'>hsa-mir-548ae</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018969'>hsa-mir-548ag</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018972'>hsa-mir-548ah</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018989'>hsa-mir-548ai</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018990'>hsa-mir-548aj</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019013'>hsa-mir-548ak</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019024'>hsa-mir-548al</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019076'>hsa-mir-548am</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0019079'>hsa-mir-548an</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003254'>hsa-mir-548b-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004798'>hsa-mir-548b-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003285'>hsa-mir-548c-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004806'>hsa-mir-548c-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003323'>hsa-mir-548d-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004812'>hsa-mir-548d-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005874'>hsa-mir-548e</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005895'>hsa-mir-548f</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005912'>hsa-mir-548g</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005928'>hsa-mir-548h</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005935'>hsa-mir-548i</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005875'>hsa-mir-548j</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005882'>hsa-mir-548k</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005889'>hsa-mir-548l</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005917'>hsa-mir-548m</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005916'>hsa-mir-548n</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005919'>hsa-mir-548o</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005934'>hsa-mir-548p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0015081'>hsa-mir-548x</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003333'>hsa-mir-549</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004800'>hsa-mir-550a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018445'>hsa-mir-550b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003214'>hsa-mir-551a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003233'>hsa-mir-551b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003215'>hsa-mir-552</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003216'>hsa-mir-553</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003217'>hsa-mir-554</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004793'>hsa-mir-556-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003220'>hsa-mir-556-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003221'>hsa-mir-557</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003222'>hsa-mir-558</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003225'>hsa-mir-561</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003228'>hsa-mir-564</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003230'>hsa-mir-566</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003231'>hsa-mir-567</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003232'>hsa-mir-568</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003234'>hsa-mir-569</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003235'>hsa-mir-570</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003236'>hsa-mir-571</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003237'>hsa-mir-572</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003238'>hsa-mir-573</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003239'>hsa-mir-574-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004795'>hsa-mir-574-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004796'>hsa-mir-576-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003241'>hsa-mir-576-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003242'>hsa-mir-577</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003243'>hsa-mir-578</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003244'>hsa-mir-579</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003245'>hsa-mir-580</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003246'>hsa-mir-581</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004797'>hsa-mir-582-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003247'>hsa-mir-582-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003249'>hsa-mir-584</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003250'>hsa-mir-585</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003252'>hsa-mir-586</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003253'>hsa-mir-587</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003255'>hsa-mir-588</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004801'>hsa-mir-590-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003258'>hsa-mir-590-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003263'>hsa-mir-595</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003265'>hsa-mir-597</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003266'>hsa-mir-598</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003267'>hsa-mir-599</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003268'>hsa-mir-600</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003270'>hsa-mir-602</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003271'>hsa-mir-603</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003272'>hsa-mir-604</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003273'>hsa-mir-605</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003274'>hsa-mir-606</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003275'>hsa-mir-607</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003276'>hsa-mir-608</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003279'>hsa-mir-611</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003280'>hsa-mir-612</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003282'>hsa-mir-614</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003283'>hsa-mir-615-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004804'>hsa-mir-615-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004805'>hsa-mir-616</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003286'>hsa-mir-617</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003287'>hsa-mir-618</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003288'>hsa-mir-619</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003289'>hsa-mir-620</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003290'>hsa-mir-621</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003291'>hsa-mir-622</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003292'>hsa-mir-623</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004807'>hsa-mir-624</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003294'>hsa-mir-625</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003295'>hsa-mir-626</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003297'>hsa-mir-628-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003299'>hsa-mir-630</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003300'>hsa-mir-631</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003302'>hsa-mir-632</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003303'>hsa-mir-633</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003304'>hsa-mir-634</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003305'>hsa-mir-635</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003306'>hsa-mir-636</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003307'>hsa-mir-637</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003308'>hsa-mir-638</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003309'>hsa-mir-639</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003310'>hsa-mir-640</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003311'>hsa-mir-641</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003312'>hsa-mir-642a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0018444'>hsa-mir-642b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003313'>hsa-mir-643</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003315'>hsa-mir-645</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003316'>hsa-mir-646</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003317'>hsa-mir-647</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003318'>hsa-mir-648</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003320'>hsa-mir-650</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003321'>hsa-mir-651</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003322'>hsa-mir-652</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003328'>hsa-mir-653</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004814'>hsa-mir-654-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003330'>hsa-mir-654-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003331'>hsa-mir-655</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003332'>hsa-mir-656</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003335'>hsa-mir-657</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003336'>hsa-mir-658</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003337'>hsa-mir-659</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003338'>hsa-mir-660</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003324'>hsa-mir-661</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003325'>hsa-mir-662</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003326'>hsa-mir-663</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005867'>hsa-mir-663b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005949'>hsa-mir-664</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003881'>hsa-mir-668</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004819'>hsa-mir-671-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003880'>hsa-mir-671-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004284'>hsa-mir-675</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004926'>hsa-mir-708</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0012735'>hsa-mir-718</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0005954'>hsa-mir-720</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004945'>hsa-mir-744</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003879'>hsa-mir-758</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004957'>hsa-mir-760</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003945'>hsa-mir-765</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003888'>hsa-mir-766</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003883'>hsa-mir-767-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003882'>hsa-mir-767-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003887'>hsa-mir-769-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003886'>hsa-mir-769-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003948'>hsa-mir-770-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004185'>hsa-mir-802</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004953'>hsa-mir-873</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004911'>hsa-mir-874</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004923'>hsa-mir-875-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004925'>hsa-mir-876-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004924'>hsa-mir-876-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004949'>hsa-mir-877</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004948'>hsa-mir-885-3p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004947'>hsa-mir-885-5p</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004916'>hsa-mir-888</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004921'>hsa-mir-889</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004912'>hsa-mir-890</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004902'>hsa-mir-891a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004913'>hsa-mir-891b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004907'>hsa-mir-892a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004918'>hsa-mir-892b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000441'>hsa-mir-9</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004970'>hsa-mir-920</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004971'>hsa-mir-921</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004972'>hsa-mir-922</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004974'>hsa-mir-924</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000092'>hsa-mir-92a</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0003218'>hsa-mir-92b</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000093'>hsa-mir-93</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004976'>hsa-mir-933</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004978'>hsa-mir-935</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004979'>hsa-mir-936</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004980'>hsa-mir-937</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004981'>hsa-mir-938</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004982'>hsa-mir-939</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004983'>hsa-mir-940</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004984'>hsa-mir-941</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004985'>hsa-mir-942</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0004987'>hsa-mir-944</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000095'>hsa-mir-96</option>
+                                
+                                    <option value='/specific_miRNA/MIMAT0000096'>hsa-mir-98</option>
+                                
+                            </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class='fill'>
+                            <tr>
+                                <td class='header2'>Inference Method:</td>
+                                <td><select name='method' id='method' OnChange='location.href=form1.method.options[selectedIndex].value'>
+                                <option value='nothing' selected='selected'>Select an Inference Method</option>
+                                <option value='/inference/miRvestigator'>Weeder-miRvestigator</option>
+                                <option value='/inference/PITA'>PITA Enrichment</option>
+                                <option value='/inference/TargetScan'>TargetScan Enrichment</option>
+                            </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table></center>
+        </form>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}        <script src="sorttable.js"></script>
+        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#infTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Inferences for {{ miRNA }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='infTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>Dataset</th>
+                                <th class='header_middle'>Cluster Number</th>
+                                <th class='header_right'>Method</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in entries %}
+                            <tr>
+                                <td class='entry_left'><a href='/dataset/{{ entry.dataset }}'>{{ entry.dataset }}</a></td>
+                                <td class='entry_middle'><a href='/cluster/{{ entry.dataset }}/{{ entry.cluster }}'>{{ entry.cluster }}</a></td>
+                                <td class='entry_right'>{{ entry.method }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

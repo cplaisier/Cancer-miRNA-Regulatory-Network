@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#overlapTable").tablesorter( {sortList: [[1,0]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Same miRNA Targetting Multiple Co-Expression Clusters and the Same GO Term</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='overlapTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>Co-expression Cluster</th>
+                                <th class='header_middle'>miRNA</th>
+                                <th class='header_middle'>GO Terms</th>
+                                <th class='header_right'>Co-expression Cluster</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for overlap in overlapping %}
+                            <tr>
+                                <td class='entry_left'>{{ overlap.cluster_1 }}</td>
+                                <td class='entry_middle'>{{ overlap.mirna_name }}</td>
+                                <td class='entry_middle'>
+                                    <table>
+                                        {% for go in overlap.gene_ontology %}
+                                        <tr>
+                                            <td>{{ go.go_id }}</td>
+                                            <td>{{ go.category }}</td>
+                                            <td>{{ go.term }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </table>
+                                </td>
+                                <td class='entry_right'>{{ overlap.cluster_2 }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

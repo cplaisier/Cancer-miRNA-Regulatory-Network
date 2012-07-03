@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}        <script src="sorttable.js"></script>
+        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#geneTable").tablesorter( {sortList: [[0,0], [1,0]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>miRNAs Inferred Using {{ method }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='geneTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>Dataset</th>
+                                <th class='header_middle'>Cluster Number</th>
+                                <th class='header_middle'>miRNA</th>
+                                <th class='header_right'>Gene Ontology Enrichment</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in entries %}
+                            <tr>
+                                <td class='entry_left'><a href='/dataset/{{ entry.dataset }}'>{{ entry.dataset }}</a></td>
+                                <td class='entry_middle'><a href='/cluster/{{ entry.dataset }}/{{ entry.number }}'>{{ entry.number }}</a></td>
+                                <td class='entry_middle'>{% for miRNA, mat_seq_id in entry.miRNA.items %}
+                                    <a href='/miRNA/{{ entry.dataset }}/{{ entry.number }}/{{ mat_seq_id }}'>{{ miRNA }}</a></br>
+                                {% endfor %}</td>
+                                <td class='entry_right'><center>
+                                    <table>
+                                        <tr>
+                                            {% if entry.BP or entry.CC or entry.MF %}
+                                                {% if entry.BP %}<td class='center3'><a href='/{{ entry.url_bp }}'>BP</a></td>{% endif %}
+                                                {% if entry.CC %}<td class='center3'><a href='/{{ entry.url_cc }}'>CC</a></td>{% endif %}
+                                                {% if entry.MF %}<td class='center3'><a href='/{{ entry.url_mf }}'>MF</a></td>{% endif %}
+                                            {% else %}
+                                                <span class='matchBackground'>zzz999</span>
+                                            {% endif %}
+
+                                        </tr>
+                                    </table>
+                                </center></td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

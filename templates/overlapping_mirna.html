@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+{% endblock %}
+{% block content_col1 %}        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Same miRNA Targetting Multiple Co-Expression Clusters</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% for mirna, clusters in overlapping.items %}
+                        <table width='100%'>
+                            <tr>
+                                <td class='header2' colspan=2>{{ mirna }}</th>
+                            </tr>
+                            {% for cluster in clusters %}
+                            <tr>
+                                <td class='entry_left'>{{ cluster.coexpression_cluster }}</td>
+                                <td class='entry_right'>{{ cluster.method }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        </br>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block content_col1 %}
+        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Compendium of Experimentally Determined miRNA Target Genes</div>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>We have collected a compendium of 50 experimentally determined miRNA taregt genes (22 independent studies, 41 unique miRNAs) from transcriptome profiles where the expression of a miRNA was perturbed and the resultnant differentially expressed genes were identified.  The miRNAs perturbed include:
+                    <ul class='mc_ul'>
+                        <li class='mc_li'>hsa-let-7a</li>
+                        <li class='mc_li'>hsa-let-7b</li>
+                        <li class='mc_li'>hsa-let-7c</li>
+                        <li class='mc_li'>hsa-miR-1</li>
+                        <li class='mc_li'>hsa-miR-hes-3</li>
+                        <li class='mc_li'>hsa-miR-7</li>
+                        <li class='mc_li'>hsa-miR-9</li>
+                        <li class='mc_li'>hsa-miR-15a</li>
+                        <li class='mc_li'>hsa-miR-15b</li>
+                        <li class='mc_li'>hsa-miR-16</li>
+                        <li class='mc_li'>hsa-miR-17</li>
+                        <li class='mc_li'>hsa-miR-17-5p/20a/93/106a/106b</li>
+                        <li class='mc_li'>hsa-miR-20</li>
+                        <li class='mc_li'>hsa-miR-21</li>
+                        <li class='mc_li'>hsa-miR-29c</li>
+                        <li class='mc_li'>hsa-miR-31</li>
+                        <li class='mc_li'>hsa-miR-34a</li>
+                        <li class='mc_li'>hsa-miR-103</li>
+                        <li class='mc_li'>hsa-miR-106b</li>
+                        <li class='mc_li'>hsa-miR-107</li>
+                        <li class='mc_li'>hsa-miR-122</li>
+                        <li class='mc_li'>hsa-miR-122a</li>
+                        <li class='mc_li'>hsa-miR-124</li>
+                        <li class='mc_li'>hsa-miR-125a</li>
+                        <li class='mc_li'>hsa-miR-128</li>
+                        <li class='mc_li'>hsa-miR-132</li>
+                        <li class='mc_li'>hsa-miR-133a</li>
+                        <li class='mc_li'>hsa-miR-141</li>
+                        <li class='mc_li'>hsa-miR-142-3p</li>
+                        <li class='mc_li'>hsa-miR-148b</li>
+                        <li class='mc_li'>hsa-miR-155</li>
+                        <li class='mc_li'>hsa-miR-181a</li>
+                        <li class='mc_li'>hsa-miR-184</li>
+                        <li class='mc_li'>hsa-miR-192</li>
+                        <li class='mc_li'>hsa-miR-195</li>
+                        <li class='mc_li'>hsa-miR-197</li>
+                        <li class='mc_li'>hsa-miR-200a</li>
+                        <li class='mc_li'>hsa-miR-200b</li>
+                        <li class='mc_li'>hsa-miR-210</li>
+                        <li class='mc_li'>hsa-miR-215</li>
+                        <li class='mc_li'>hsa-miR-346</li>
+                    </ul>
+                    <br class='cl_br'>
+                    <p>
+                    We used this compendium to assess the performance of methods to infer miRNA mediated regulation .  The compendium can be donwloaded as a comma separated file (CSV) file:</p>
+                        <ul>
+                            <li><a href='/static/compendium_miRNA_target_genes.csv'>compendium_miRNA_target_genes.csv</a></li>
+                        </ul>
+                    The CSV file contians 5,129 entries with three columns:
+                        <ol>
+                            <li><b>miRNA</b> - the perturbed miRNA name.</li>
+                            <li><b>PMID</b> - the PubMed ID for the publication describing the exeriment.</li>
+                            <li><b>Entrez Gene ID</b> - the NCBI Entrez Gene identifier for the gene experimentally demonstrated to be regulated by the miRNA.</li>
+                        </ol>
+                    This file is provided in the CSV format to facilitate the use of Microsoft Excel or a comparable spreadsheet application to sort and filter the entries.
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}      <script src="sorttable.js"></script>
+        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#geneTable").tablesorter( {sortList: [[3,0], [1,0]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}
+        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Validated Inferred miRNAs via miR2Disease</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Nubmer of miRvestigator validated = {{ miRvestigator }}</p>
+                        <p>Nubmer of PITA validated = {{ PITA }}</p>
+                        <p>Nubmer of TargetScan validated = {{ TargetScan }}</p>
+                        <p>All = {{ all }}</p>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

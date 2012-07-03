@@ -1,0 +1,6 @@
+Cancer-miRNA-Regulatory-Network
+===============================
+
+A database containing the predictions for the Cancer miRNA-Regulatory Network.
+
+This application was developed using Django, Python and PosgreSQL.

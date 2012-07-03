@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="copyright" content="&copy; 2011 Institute for Systems Biology" />
+        <link rel='stylesheet' type='text/css' href='/static/cmrn.css' />
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-28298738-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        {% block javascript %}{% endblock %}
+    </head>
+    <body>
+        <div id='header'>
+            <a href='/'><img src='/static/cancerMiRNARegulatoryNetwork.gif' /></a>
+        </div>
+        <div class='colmask threecol'>
+            <div class='colmid'>
+                <div class='colleft'>
+                    <div class='col1'>
+                        <!-- Column 1 start --!>
+                        <p>
+                        <table width='100%' class='nobottomspacing'>
+                            <tr>
+                                <td class='tab'><a href='/' class='tab'>Cancer-miRNA</br>Regulatory Network</a></td>
+                                <td class='spacer'></td>
+                                <td class='tab'><a href='/compendium' class='tab'>Compendium of</br>miRNA Target Genes</a></td>
+                                <td class='spacer'></td>
+                                <td class='tab'><a href='/firm' class='tab'>Download FIRM</a></td>
+                                <td class='spacer'></td>
+                                <!-- <td class='tab'><a href='/help' class='tab'>Help</a></td>
+                                <td class='spacer'></td> --!>
+                                <td class='tab'><a href='/citation' class='tab'>Citation</a></td>
+                            </tr>
+                        </table>
+                        <table class='nospacing' width='100%'>
+                            <tr>
+                                <td class='tdtab'>
+                                    {% block content_col1 %}
+                                    {% endblock %}
+                                </td>
+                            </tr>
+                        </table>
+                        <table class='bottomtab' width='100%'><tr><td>
+                                    Need help? Please contact <span class='afooter_like'>cplaisier(at)systemsbiology.org</span> if you have any questions, comments or concerns.</br>
+                                    Developed at the <a href="http://www.systemsbiology.org" target="_blank"  class="footer">Institute for Systems Biology</a> in the <a href="http://baliga.systemsbiology.net/" target="_blank" class="footer">Baliga Lab</a>.</br>
+                                    <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangosite80x15_grey.gif" border="0" alt="A Django site." title="A Django site." /></a> &nbsp; <a href="http://www.postgresql.org/"><img src="http://www.postgresql.org/files/community/propaganda/80x16_3.gif" border="0" alt="Powered by PostgreSQL" title="Powered by PostgreSQL" /></a>
+                        </td></tr></table>
+                        </p>
+                        <!-- Column 1 end --!>
+                    </div>
+                    <div class='col2'>
+                        <!-- Column 2 start --!>
+                        {% block content_col2 %}
+                        {% endblock %}
+                        <!-- Column 2 end --!>
+                    </div>
+                    <div class='col3'>
+                        <!-- Column 3 start --!>
+                        {% block content_col3 %}
+                        {% endblock %}
+                        <!-- Column 3 end --!>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='footer'>
+        </div>
+    </body>
+</html>

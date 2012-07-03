@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}        <script src="sorttable.js"></script>
+        <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            {  
+                $("#regulation").tablesorter( {sortList: [[0,0]]} ); 
+                $("#goTermTable").tablesorter( {sortList: [[2,1],[1,0]]} ); 
+                $("#overlapTable").tablesorter( {sortList: [[8,0]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}
+        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>{{ dataset }} Cluster Number {{ cluster }} ({{ num_clust_genes }} genes)</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>This page contains all miRNA mediated regulation and functional enrichment for {{ dataset }} cluster number {{ cluster }}.  Information about <a href='{{ wikipedia }}' target='_blank'>{{ cancer.lower }}</a> can be found on Wikipedia, and further information about the "{{ dataset }}" dataset can be found in <a href='http://www.ncbi.nlm.nih.gov/pubmed/{{ details.pmid }}' target='_blank'>{{ details.publication }}</a>.</td>
+                </tr>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Inferred miRNA Mediated Regulation</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='regulation' class='tablesorter' width='100%'>
+                            <thead>
+                                <tr>
+                                <th class='header_left'>Weeder-miRvestigator</th>
+                                <th class='header_middle'>PITA</th>
+                                <th class='header_right'>TargetScan</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class='entry_left'>{% if regulation.miRvestigator %}
+                                        {% for miRNA, mat_seq_id in regulation.miRvestigator.items %}
+                                            <a href='/miRNA/{{ dataset }}/{{ cluster }}/{{ mat_seq_id }}'>{{ miRNA }}</a></br>
+                                        {% endfor %}
+                                    {% else %}
+                                        <span class='matchBackground'>zzz999</span>
+                                    {% endif %}
+                                </td>
+                                <td class='entry_middle'>{% if regulation.PITA %}
+                                        {% for miRNA, mat_seq_id in regulation.PITA.items %}
+                                           <a href='/miRNA/{{ dataset }}/{{ cluster }}/{{ mat_seq_id }}'>{{ miRNA }}</a></br>
+                                        {% endfor %}
+                                    {% else %}
+                                        <span class='matchBackground'>zzz999</span>
+                                    {% endif %}
+                                </td>
+                                <td class='entry_right'>{% if regulation.TargetScan %}
+                                        {% for miRNA, mat_seq_id in regulation.TargetScan.items %}
+                                            <a href='/miRNA/{{ dataset }}/{{ cluster }}/{{ mat_seq_id }}'>{{ miRNA }}</a></br>
+                                        {% endfor %}
+                                    {% else %}
+                                        <span class='matchBackground'>zzz999</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Gene Ontology Enrichment</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='goTermTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>GO ID</th>
+                                <th class='header_middle'>GO Term</th>
+                                <th class='header_right'>Annotated Genes in Cluster</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in functional_enrichment %}
+                            <tr>
+                                <td class='entry_left'><a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term={{ entry.go_id }}'>{{ entry.go_id }}</a></td>
+                                <td class='entry_middle'>{{ entry.go_term }}</td>
+                                <td class='entry_right'><a href='/{{ dataset }}/{{ cluster }}/{{ entry.go_id }}/genes'>{{ entry.num_genes }}</a></td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>Overlap Between miRNA Target Genes and Enriched Gene Ontology Annotations</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='overlapTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>miRNA</th>
+                                <th class='header_middle'>Method</th>
+                                <th class='header_middle'>GO ID</th>
+                                <th class='header_middle'>GO Term</th>
+                                <th class='header_middle'>Overlap</th>
+                                <th class='header_middle'>GO Annotated Genes</th>
+                                <th class='header_middle'>Cluster Size</th>
+                                <th class='header_middle'>miRNA Targets Genes</th>
+                                <th class='header_right'>P-Value</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in overlaps %}
+                            <tr>
+                                <td class='entry_left'><a href='/miRNA/{{ dataset }}/{{ cluster }}/{{ entry.mat_seq_id }}'>{{ entry.miRNA }}</a></td>
+                                <td class='entry_middle'>{{ entry.method }}</td>
+                                <td class='entry_middle'><a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term={{ entry.go_id }}'>{{ entry.go_id }}</a></td>
+                                <td class='entry_middle'>{{ entry.go_term }}</td>
+                                <td class='entry_middle'><a href='/overlap/{{ dataset }}/{{ cluster }}/{{ entry.mat_seq_id }}/{{ entry.method }}/{{ entry.go_id }}'>{{ entry.overlap }}</a></td>
+                                <td class='entry_middle'><a href='/{{ dataset }}/{{ cluster }}/{{ entry.go_id }}/genes'>{{ entry.go_genes }}</a></td>
+                                <td class='entry_middle'>{{ entry.cluster_size }}</td>
+                                <td class='entry_middle'><a href='/miRNA/{{ dataset }}/{{ cluster }}/{{ entry.mat_seq_id }}'>{{ entry.miRNA_genes }}</a></td>
+                                <td class='entry_right'>{{ entry.p_value }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}

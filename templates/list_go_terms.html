@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Cancer miRNA Regulatory Network{% endblock %}
+{% block javascript %}      <script type="text/javascript" src="/static/jquery-1.6.1.min.js"></script> 
+        <script type="text/javascript" src="/static/jquery.tablesorter.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() 
+            { 
+                $("#goTable").tablesorter( {sortList: [[2,1]]} ); 
+            } 
+            );
+        </script>
+{% endblock %}
+{% block content_col1 %}        <p>
+            <table class='center'>
+                <tr>
+                    <td class='header'>
+                        <div class='center1'>{{ category }} for {{ cancer }} Cluster {{ cluster }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id='goTable' class='tablesorter' width='100%'>
+                            <thead>
+                            <tr>
+                                <th class='header_left'>Gene Ontology ID</th>
+                                <th class='header_middle'>Term</th>
+                                <th class='header_right'>Annotated Genes in Cluster</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in entries %}
+                            <tr>
+                                <td class='entry_left'><a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term={{ entry.go_id }}'>{{ entry.go_id }}</a></td>
+                                <td class='entry_middle'>{{ entry.term }}</td>
+                                <td class='entry_right'><a href='/{{ cancer }}/{{ cluster }}/{{ entry.go_id }}/genes'>{{ entry.num_genes }}</a></td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{% endblock %}
